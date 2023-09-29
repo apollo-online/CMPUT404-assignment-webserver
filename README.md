@@ -29,3 +29,5 @@ Nima Shariatzadeh - shariatz - gave some advice on how to properly format and se
 
 Referenced:
 https://stackoverflow.com/a/6803714 - jterrace - adapted code for how to prevent directory traversal attack
+https://www.codementor.io/@joaojonesventura/building-a-basic-http-server-from-scratch-in-python-1cedkg0842 - João Ventura - used this as the basis for the basic server functionality (getting requests, 
+parsing data, serving index.html, sending 404)
