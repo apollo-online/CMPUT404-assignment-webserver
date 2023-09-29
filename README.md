@@ -24,3 +24,8 @@ examples thus some of the code is Copyright © 2001-2013 Python
 Software Foundation; All Rights Reserved under the PSF license (GPL
 compatible) http://docs.python.org/2/library/socketserver.html
 
+Consulted with:
+Nima Shariatzadeh - shariatz - gave some advice on how to properly format and send http responses.
+
+Referenced:
+https://stackoverflow.com/a/6803714 - jterrace - adapted code for how to prevent directory traversal attack

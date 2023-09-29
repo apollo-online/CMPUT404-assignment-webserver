@@ -52,7 +52,7 @@ class TestYourWebserver(unittest.TestCase):
         else:
             self.assertTrue( False, "Another Error was thrown!")
 
-    def test_get_group(self):
+    def test_get_group(self): # hardcoded
         """ how secure are you? """
         url = self.baseurl + "/../../../../../../../../../../../../etc/group"
         try:
@@ -80,12 +80,12 @@ class TestYourWebserver(unittest.TestCase):
             self.assertTrue( e.getcode()  == 405 , ("405 Not FOUND! %d" % e.getcode()))
 
     # CMPUT404W19 did not have to pass to this
-    def test_deep_no_end(self):
+    def test_deep_no_end(self): # passing?
         url = self.baseurl + "/deep"
         expected_url = self.baseurl + "/deep/"
         try:
             req = request.urlopen(url, None, 3)
-            code = req.getcode() 
+            code = req.getcode()
             if code >= 200 and code <= 299 and req.geturl() == expected_url:
                 self.assertTrue(True, "The library has redirected for us")
             else:
@@ -100,7 +100,7 @@ class TestYourWebserver(unittest.TestCase):
         self.assertTrue( req.getcode()  == 200 , "200 OK Not FOUND!")
         self.assertTrue( req.info().get_content_type() == "text/html", ("Bad mimetype for html! %s" % req.info().get_content_type()))
 
-    def test_hardcode(self):
+    def test_hardcode(self): # broken
         os.system("cp -r www/deep www/hardcode")
         url = self.baseurl + "/hardcode/index.html"
         req = request.urlopen(url, None, 3)
@@ -109,7 +109,7 @@ class TestYourWebserver(unittest.TestCase):
         url = self.baseurl + "/hardcode/"
         req = request.urlopen(url, None, 3)
         self.assertTrue( req.getcode()  == 200 , "200 OK Not FOUND! Hardcoding? /hardcode/")
-        self.assertTrue( req.info().get_content_type() == "text/html", ("Bad mimetype for html! %s" % req.info().get_content_type()))
+        self.assertTrue( req.info().get_content_type() == "text/html", ("Bad mimetype for html! %s" % req.info().get_content_type())) # issue
 
     def test_hardcode2(self):
         url = self.baseurl + "/deep.css"

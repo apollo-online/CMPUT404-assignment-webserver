@@ -41,7 +41,6 @@ class TestYourWebserver(unittest.TestCase):
         req = request.urlopen(url, None, 3)
         self.assertTrue( req.getcode()  == 200 , "200 OK Not FOUND!")
 
-
     def test_get_404(self):
         url = self.baseurl + "/do-not-implement-this-page-it-is-not-found"
         try:
